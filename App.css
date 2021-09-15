@@ -1,0 +1,43 @@
+#app {
+  
+  align-items: center;
+}
+
+#nav-bar {
+  background-color: lightgrey;
+  height: 50px;
+  width: 100%;
+}
+
+#nav-bar ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+#footer {
+  background-color: lightgrey;
+  height: 50px;
+  text-align: center;
+  width: 100%;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+  width: 400px ;
+  height: 600px ;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+#breedselect {
+  text-align: center;
+  justify-content: center
+}
+
+#homepic {
+  text-align: center;
+}
