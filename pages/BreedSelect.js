@@ -30,32 +30,33 @@ const BreedSelect = (props) => {
     const getSelectView = () => {
         return (
             <div>
-            <select
-                breed = 'breeds'
-                onChange = {event => handleChange(event)}> {/* drop down breed selector calls function handleChange */}
-                value = {selectedBreed}
-                {props.breedsList.map((breed, index) => { // iterates through all breeds with index number
-                    return (
-                        <option value={breed} key={index}>{breed}</option> // assign selected breed 
-                    )
+                <select
+                    breed='breeds'
+                    onChange={event => handleChange(event)}
+                    value = {selectedBreed}>
+                    {props.breedsList.map((breed, index) => {
+                        return (
+                            <option value={breed} key={index}>{breed}</option>
+                        )
 
-                })}
-            </select>
-            <select
-                subBreed = 'subBreed'
-                onChange = {handleSubBreedSelect()}
-                value = {setSelectedSubBreed}
+                    })}
+                </select>
+                <select
+                    subBreed='subBreed'
+                    onChange={handleSubBreedSelect}
+                    value={setSelectedSubBreed}
                 >
                     <option value=''>Select your sub breed</option>
                     {props.subBreedsList.map((subBreed, index) => (
-                        <option key = {index} value = {subBreed}>
+                        <option key={index} value={subBreed}>
                             {subBreed}
-                            </option>
+                        </option>
                     ))}
                 </select>
-       )
-    
- 
+            </div>
+        )
+    }
+
     return (
         <div id='breedselect'>
             Select Your Breed
@@ -65,6 +66,6 @@ const BreedSelect = (props) => {
             {/** if error loading return getErrorView else show nothing */}
             {props.isError ? getErrorView : null}
         </div>
-</div>    )
-}}
+    )
+}
 export default BreedSelect

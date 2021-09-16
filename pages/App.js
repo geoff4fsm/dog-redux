@@ -13,6 +13,7 @@ class App extends Component {
   state = {  // define state
     breedsList: [],
     subBreedsList: [],
+    subBreedsLength: 0,
     selectedBreed: null,
     selectedSubBreed: null,
     isError: false
@@ -26,10 +27,12 @@ class App extends Component {
       if (response.ok) { // ckeck if status code is 200 in dev tools network or error present
         const data = await response.json();  // convert response to readable format
         this.setState({  // change state of breedsList from null to all breeds
-          breedsList: Object.keys(data.message) // data.message is object of all breeds
+          breedsList: Object.keys(data.message), // data.message is object of all breeds
           // if key length > 0 create sub Breeds list
-          if 
+          subBreedsLength : Object.values(data.message).length,
+          subBreedsList : Object.values(data.message)
         })
+        
       } else {
         this.setState({
           isError: true  // change error state if unable to get data
@@ -43,27 +46,27 @@ class App extends Component {
       alert('Sorry, data unavailable')
     }
   }
-  fetchAllSubBreeds = async () => {  // function to get all subBreeds must wait for response so can do other things while waiting
-    try { //try to get data for suBreeds
-      const response = await fetch(`https://dog.ceo/api/breeds/${this.state.selectedBreed}/list`); {/* promise breeds list */ }
-      if (response.ok) { // ckeck if status code is 200 in dev tools network or error present
-        const data = await response.json();  // convert response to readable format
-        this.setState({  // change state of subBreedsList from null to all breeds
-          subBreedsList: Object.keys(data.message) // data.message is object of all breeds
-        })
-      } else {
-        this.setState({
-          isError: true  // change error state if unable to get data
-        })
-        alert('Sorry, data unavailable')
-      }
-    } catch (e) { // code will jump here if there is a network problem
-      this.setState({
-        isError: true
-      })
-      alert('Sorry, data unavailable')
-    }
-  }
+  // fetchAllSubBreeds = async () => {  // function to get all subBreeds must wait for response so can do other things while waiting
+  //   try { //try to get data for suBreeds
+  //     const response = await fetch(`https://dog.ceo/api/breeds/${this.state.selectedBreed}/list`); {/* promise breeds list */ }
+  //     if (response.ok) { // ckeck if status code is 200 in dev tools network or error present
+  //       const data = await response.json();  // convert response to readable format
+  //       this.setState({  // change state of subBreedsList from null to all breeds
+  //         subBreedsList: Object.values(data.message) // data.message is object of all breeds
+  //       })
+  //     } else {
+  //       this.setState({
+  //         isError: true  // change error state if unable to get data
+  //       })
+  //       alert('Sorry, data unavailable')
+  //     }
+  //   } catch (e) { // code will jump here if there is a network problem
+  //     this.setState({
+  //       isError: true
+  //     })
+  //     alert('Sorry, data unavailable')
+  //   }
+  // }
   selectHandler = (breed) => { // assigns selected breed to state
     this.setState({
       selectedBreed: breed
@@ -77,16 +80,17 @@ class App extends Component {
   render() {
     // console.log(this.state.breedsList)
     // console.log(this.state.selectedBreed)
-    // console.log(this.state.subBreed)
+     console.log(this.state)
     return (
       <div className='App'>
         <NavBar />
         <Switch>
           <Route exact path='/breedselect'>
             {/* send breedsList and errror state to component BreedSelect, call function to send selected breed as onSelect */}
-            <BreedSelect breedsList={this.state.breedsList} onSelect={this.selectHandler} isError={this.state.isError} />
+            <BreedSelect breedsList={this.state.breedsList} subBreedsList={this.state.subBreedsList} onSelect={this.selectHandler} isError={this.state.isError} />
             {/* send selectedBreed to component BreedImage */}
             <BreedImage breed={this.state.selectedBreed} />
+            
             <SubBreedSelect subBreedsList={this.state.subBreedsList} onSubSelect={this.selectSubHandler} isError={this.state.isError} />
             <SubBreedImage subBreed={this.state.selectedSubBreed} />
           </Route>
