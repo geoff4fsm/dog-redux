@@ -9,7 +9,7 @@ const BreedSelect = (props) => {
     const handleChange = (event) => {  // function to assign selected breed
         props.onSelect(event.target.value) // event is change, target is breeds, value is selected breed
         const breedSelect = event.target.value
-        console.log(event.target.selectedIndex)
+        // console.log(event.target.selectedIndex)
         const subBreedSelect = breedSelect !== '' ? breeds[breedSelect] : ''
         setSelectedBreed(breedSelect)
         setBreeds(subBreedSelect ? subBreedSelect : '' )
@@ -19,8 +19,10 @@ const BreedSelect = (props) => {
 
     const handleSubBreedSelect = (e) => {
         props.onSubSelect(e.target.value)
+        console.log(e.target.value)
         const subBreedSelect = e.target.value
         setSelectedSubBreed(subBreedSelect)
+        console.log(subBreedSelect)
     }
 
     const getLoadingView = () => {  // view while breedsList is loading
@@ -46,8 +48,8 @@ const BreedSelect = (props) => {
                 </select>
                 <select
                     subBreed='subBreeds'
-                    onChange={handleSubBreedSelect}
-                    value={setSelectedSubBreed}
+                    onChange={e => handleSubBreedSelect(e)}
+                    value={selectedSubBreed}
                 >
                     <option value=''>Select your sub breed</option>
                     {selectedBreed ? props.subBreedsList[subIndex].map((subBreed, index) => (

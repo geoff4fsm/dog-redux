@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom'
 import '../App.css'
 import BreedImage from './BreedImage'
 import BreedSelect from './BreedSelect'
-import SubBreedSelect from './SubBreedSelect'
 import SubBreedImage from './SubBreedImage'
 import Home from './Home'
 import NavBar from '../components/NavBar'
@@ -13,7 +12,6 @@ class App extends Component {
   state = {  // define state
     breedsList: [],
     subBreedsList: [],
-    subBreedsLength: 0,
     selectedBreed: null,
     selectedSubBreed: null,
     isError: false
@@ -28,11 +26,9 @@ class App extends Component {
         const data = await response.json();  // convert response to readable format
         this.setState({  // change state of breedsList from null to all breeds
           breedsList: Object.keys(data.message), // data.message is object of all breeds
-          // if key length > 0 create sub Breeds list
-          subBreedsLength : Object.values(data.message).length,
-          subBreedsList : Object.values(data.message)
+          subBreedsList: Object.values(data.message)
         })
-        
+
       } else {
         this.setState({
           isError: true  // change error state if unable to get data
@@ -46,7 +42,7 @@ class App extends Component {
       alert('Sorry, data unavailable')
     }
   }
- 
+
   selectHandler = (breed) => { // assigns selected breed to state
     this.setState({
       selectedBreed: breed
@@ -60,7 +56,7 @@ class App extends Component {
   render() {
     // console.log(this.state.breedsList)
     // console.log(this.state.selectedBreed)
-     console.log(this.state)
+    // console.log(this.state.selectedSubBreed)
     return (
       <div className='App'>
         <NavBar />
@@ -71,7 +67,7 @@ class App extends Component {
             {/* send selectedBreed to component BreedImage */}
             <BreedImage breed={this.state.selectedBreed} />
             {/* <SubBreedSelect subBreedsList={this.state.subBreedsList} onSubSelect={this.selectSubHandler} isError={this.state.isError} /> */}
-            <SubBreedImage subBreed={this.state.selectedSubBreed} />
+            <SubBreedImage subBreed={this.state.selectedSubBreed} breed={this.state.selectedBreed} />
           </Route>
           <Route exact path='/'>
             <Home />
