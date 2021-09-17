@@ -7,6 +7,7 @@ import SubBreedImage from './SubBreedImage'
 import Home from './Home'
 import NavBar from '../components/NavBar'
 import Footer from '../components/Footer'
+import About from './About'
 
 class App extends Component {
   state = {  // define state
@@ -65,9 +66,14 @@ class App extends Component {
             {/* send breedsList and errror state to component BreedSelect, call function to send selected breed as onSelect */}
             <BreedSelect breedsList={this.state.breedsList} subBreedsList={this.state.subBreedsList} onSelect={this.selectHandler} onSubSelect={this.selectSubHandler} isError={this.state.isError} />
             {/* send selectedBreed to component BreedImage */}
+            <div className='forScience'>
             <BreedImage breed={this.state.selectedBreed} />
             {/* <SubBreedSelect subBreedsList={this.state.subBreedsList} onSubSelect={this.selectSubHandler} isError={this.state.isError} /> */}
             <SubBreedImage subBreed={this.state.selectedSubBreed} breed={this.state.selectedBreed} />
+            </div>
+          </Route>
+          <Route exact path='/about'>
+            <About />
           </Route>
           <Route exact path='/'>
             <Home />

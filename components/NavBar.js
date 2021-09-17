@@ -13,6 +13,9 @@ export default class NavBar extends Component {
                     <li>
                         <Link to='/breedselect'>Select Breed</Link>
                     </li>
+                    <li>
+                        <Link to='/about'>About</Link>
+                    </li>
                 </ul>
             </nav>
         )

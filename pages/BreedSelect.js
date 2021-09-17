@@ -64,6 +64,7 @@ const BreedSelect = (props) => {
 
     return (
         <div id='breedselect'>
+            <br></br>
             Select Your Breed
             <br></br>
             {/** if breedsList available return breedsList (getSelectView) else return (getLoadingView) */}

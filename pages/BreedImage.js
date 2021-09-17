@@ -40,4 +40,4 @@ class BreedImage extends Component {
     }
 }
 
-export default connect(null, {fetchBreedImages: fetchBreedImages}) ( BreedImage )
+export default connect(null, { fetchBreedImages: fetchBreedImages })(BreedImage)
