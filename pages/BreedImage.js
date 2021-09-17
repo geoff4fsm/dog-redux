@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { fetchBreedImages } from '../actions'
 
 class BreedImage extends Component {
     state = {  // define state
@@ -27,6 +29,7 @@ class BreedImage extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <div >
                 <br></br>
@@ -37,4 +40,4 @@ class BreedImage extends Component {
     }
 }
 
-export default BreedImage
+export default connect(null, {fetchBreedImages: fetchBreedImages}) ( BreedImage )
