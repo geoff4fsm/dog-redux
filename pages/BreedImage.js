@@ -31,7 +31,7 @@ class BreedImage extends Component {
     render() {
         console.log(this.props)
         return (
-            <div >
+            <div className='breed-image'>
                 <br></br>
                 <img src={this.state.imageUrl} alt='dog' />
                 <br></br>

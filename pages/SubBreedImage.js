@@ -30,7 +30,7 @@ class SubBreedImage extends Component {
 
     render() {
         return (
-            <div >
+            <div className='sub-breed-image'>
                 <br></br>
                 <img src={this.state.imageUrl} alt='dog' />
                 <br></br>
