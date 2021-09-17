@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { fetchBreedImages } from '../actions'
 
 class SubBreedImage extends Component {
     state = {  // define state
@@ -39,4 +41,4 @@ class SubBreedImage extends Component {
     }
 }
 
-export default SubBreedImage
+export default connect(null, {fetchBreedImages: fetchBreedImages}) ( SubBreedImage )
