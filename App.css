@@ -1,6 +1,6 @@
 .App {
   font-size: 20px;
-  background-color: white;
+  background-color: rgb(248, 244, 244);
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -41,7 +41,7 @@ img {
   justify-content: center
 }
 
-.homepic {
+#homepic {
   max-height: 40%;
   max-width: 40%;
   /* width: 400px ;
@@ -64,19 +64,19 @@ img {
   justify-content: center; */
 }
 
-/* .breed-image img {
-  max-height: 100%;
+.sub-breed-image {
   max-width: 100%;
-  width: 400px ;
-  height: 600px ;
-  justify-content: center ;
-  flex-wrap: nowrap ;
-  flex-direction: column;
- 
-  
-} */
+  max-height: 100%;
+  min-height: 100%;
+  min-width: 50%;
+  display: inline-block;
+  margin:10px;
+  /* align-items: center;
+  justify-content: center; */
+}
+
 .forScience {
-  height: 80vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
 }
