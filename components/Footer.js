@@ -5,7 +5,7 @@ export default class Footer extends Component {
         return (
             <div id='footer'>
                 <br></br>
-                <a href="https://www.facebook.com/dottie.tandog/">Dottie Tandog fb page</a>
+                <a href="https://dog-redux.herokuapp.com/">dog-redux.herokuapp.com</a>
             </div>
         )
     }

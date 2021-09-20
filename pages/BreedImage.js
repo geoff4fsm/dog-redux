@@ -13,7 +13,7 @@ class BreedImage extends Component {
             this.setState({
                 selectedBreed: this.props.breed
             })
-            this.fetchImage()
+            this.fetchImage()  // call fetch image function
         }
     }
 

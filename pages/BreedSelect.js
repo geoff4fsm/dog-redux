@@ -4,22 +4,22 @@ const BreedSelect = (props) => {
     const [breeds, setBreeds] = useState([])
     const [selectedBreed, setSelectedBreed] = useState('')
     const [selectedSubBreed, setSelectedSubBreed] = useState('')
-    const[subIndex, setSubIndex] = useState('')
+    const [subIndex, setSubIndex] = useState('')
 
     const handleChange = (event) => {  // function to assign selected breed
         props.onSelect(event.target.value) // event is change, target is breeds, value is selected breed
         const breedSelect = event.target.value
         // console.log(event.target.selectedIndex)
-        const subBreedSelect = breedSelect !== '' ? breeds[breedSelect] : ''
+        const subBreedSelect = breedSelect !== '' ? breeds[breedSelect] : '' // if breed
         setSelectedBreed(breedSelect)
-        setBreeds(subBreedSelect ? subBreedSelect : '' )
+        setBreeds(subBreedSelect ? subBreedSelect : '')
         setSubIndex(event.target.selectedIndex)
         setSelectedSubBreed('')
     }
 
-    const handleSubBreedSelect = (e) => {
+    const handleSubBreedSelect = (e) => {  // function to assign selected sub breed
         props.onSubSelect(e.target.value)
-        console.log(e.target.value)
+        // console.log(e.target.value)
         const subBreedSelect = e.target.value
         setSelectedSubBreed(subBreedSelect)
         console.log(subBreedSelect)
@@ -39,7 +39,7 @@ const BreedSelect = (props) => {
                 <select
                     breed='breeds'
                     onChange={event => handleChange(event)}
-                    value = {selectedBreed}>
+                    value={selectedBreed}>
                     {props.breedsList.map((breed, index) => {
                         return (
                             <option value={breed} key={index} id={index}>{breed}</option>
@@ -56,7 +56,7 @@ const BreedSelect = (props) => {
                         <option key={index} value={subBreed}>
                             {subBreed}
                         </option>
-                    )):null}
+                    )) : null}
                 </select>
             </div>
         )
