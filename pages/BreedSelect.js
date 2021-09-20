@@ -8,21 +8,21 @@ const BreedSelect = (props) => {
 
     const handleChange = (event) => {  // function to assign selected breed
         props.onSelect(event.target.value) // event is change, target is breeds, value is selected breed
-        const breedSelect = event.target.value
+        const breedSelect = event.target.value  // assign selected breed
         // console.log(event.target.selectedIndex)
-        const subBreedSelect = breedSelect !== '' ? breeds[breedSelect] : '' // if breed
-        setSelectedBreed(breedSelect)
-        setBreeds(subBreedSelect ? subBreedSelect : '')
-        setSubIndex(event.target.selectedIndex)
-        setSelectedSubBreed('')
+        const subBreedSelect = breedSelect !== '' ? breeds[breedSelect] : '' // if selected  breed has sub breeds
+        setSelectedBreed(breedSelect)  // assign selected breed to state
+        setBreeds(subBreedSelect ? subBreedSelect : '') // assign breed to state
+        setSubIndex(event.target.selectedIndex) // assign sub breed index to state
+        setSelectedSubBreed('') 
     }
 
     const handleSubBreedSelect = (e) => {  // function to assign selected sub breed
         props.onSubSelect(e.target.value)
         // console.log(e.target.value)
-        const subBreedSelect = e.target.value
-        setSelectedSubBreed(subBreedSelect)
-        console.log(subBreedSelect)
+        const subBreedSelect = e.target.value  // assign sub breed
+        setSelectedSubBreed(subBreedSelect)  // selected sub breed to state
+        // console.log(subBreedSelect)
     }
 
     const getLoadingView = () => {  // view while breedsList is loading
@@ -40,7 +40,7 @@ const BreedSelect = (props) => {
                     breed='breeds'
                     onChange={event => handleChange(event)}
                     value={selectedBreed}>
-                    {props.breedsList.map((breed, index) => {
+                    {props.breedsList.map((breed, index) => { // populates all breeds into drop down menu
                         return (
                             <option value={breed} key={index} id={index}>{breed}</option>
                         )
@@ -52,7 +52,7 @@ const BreedSelect = (props) => {
                     value={selectedSubBreed}
                 >
                     <option value=''>Select your sub breed</option>
-                    {selectedBreed ? props.subBreedsList[subIndex].map((subBreed, index) => (
+                    {selectedBreed ? props.subBreedsList[subIndex].map((subBreed, index) => ( // populates all sub breeds into drop down menu if sub breeds exist
                         <option key={index} value={subBreed}>
                             {subBreed}
                         </option>

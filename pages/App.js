@@ -26,8 +26,8 @@ class App extends Component {
       if (response.ok) { // ckeck if status code is 200 in dev tools network or error present
         const data = await response.json();  // convert response to readable format
         this.setState({  // change state of breedsList from null to all breeds
-          breedsList: Object.keys(data.message), // data.message is object of all breeds
-          subBreedsList: Object.values(data.message)
+          breedsList: Object.keys(data.message), // data.message is object keys of all breeds
+          subBreedsList: Object.values(data.message) // data.message is object values of all breeds
         })
 
       } else {
@@ -63,11 +63,12 @@ class App extends Component {
         <NavBar />
         <Switch>
           <Route exact path='/breedselect'>
-            {/* send breedsList and errror state to component BreedSelect, call function to send selected breed as onSelect */}
+            {/* send breedsList and errror state to component BreedSelect and subs, call function to send selected breed as onSelect and onSubSelect */}
             <BreedSelect breedsList={this.state.breedsList} subBreedsList={this.state.subBreedsList} onSelect={this.selectHandler} onSubSelect={this.selectSubHandler} isError={this.state.isError} />
             {/* send selectedBreed to component BreedImage */}
             <div className='images'>
               <BreedImage breed={this.state.selectedBreed} />
+               {/* send selected sub breed to SubBreedImage */}
               <SubBreedImage subBreed={this.state.selectedSubBreed} breed={this.state.selectedBreed} />
             </div>
           </Route>
