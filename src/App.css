@@ -1,0 +1,82 @@
+.App {
+  font-size: 20px;
+  background-color: rgb(248, 244, 244);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center
+}
+
+#nav-bar {
+  background-color: lightgrey;
+  height: 50px;
+  width: 100%;
+}
+
+#nav-bar ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+#footer {
+  background-color: lightgrey;
+  height: 50px;
+  text-align: center;
+  width: 100%;
+}
+
+img {
+  /* max-height: 100%;
+  max-width: 100%; */
+  width: 100% ;
+  height: 100% ;
+  margin-left: auto;
+  margin-right: auto;
+    
+}
+
+#breedselect {
+  text-align: center;
+  justify-content: center
+}
+
+#homepic {
+  max-height: 40%;
+  max-width: 40%;
+  /* width: 400px ;
+  height: 600px ; */
+  display: block ;
+  margin-left: auto ;
+  margin-right: auto ;
+  margin-bottom: auto;
+  justify-content: center;
+  text-align: center;
+}
+.breed-image {
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 100%;
+  min-width: 50%;
+  display: inline-block;
+  margin:10px;
+  /* align-items: center;
+  justify-content: center; */
+}
+
+.sub-breed-image {
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 100%;
+  min-width: 50%;
+  display: inline-block;
+  margin:10px;
+  /* align-items: center;
+  justify-content: center; */
+}
+
+.forScience {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+}
