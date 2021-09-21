@@ -9,7 +9,7 @@ class SubBreedImage extends Component {
         selectedBreed: this.props.breed
     }
 
-    componentDidUpdate() {  // used to be able to change breeds multiple times
+    componentDidUpdate() {  // used to be able to change sub breeds multiple times
         if (this.props.subBreed !== this.state.selectedSubBreed) {
             this.setState({
                 selectedSubBreed: this.props.subBreed,
@@ -19,7 +19,7 @@ class SubBreedImage extends Component {
         }
     }
 
-    fetchImage = async () => {  //  function to get random pic of selected breed from api
+    fetchImage = async () => {  //  function to get random pic of selected sub breed from api
         const response = await fetch(
             `https://dog.ceo/api/breed/${this.props.breed}/${this.props.subBreed}/images/random` // must use `` instead of '' to be read properly
         )
