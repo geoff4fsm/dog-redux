@@ -6,7 +6,7 @@ import App from './pages/App';
 import { Provider } from 'react-redux'
 import reportWebVitals from './reportWebVitals';
 import store from './store'
-import 'semantic-ui-css/semantic.min.css'
+
 
 
 ReactDOM.render(
